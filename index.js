@@ -17,13 +17,14 @@ app.get('/', (req, res) => {
 
 app.get('/cfg:id.xml', (req, res) => {
   const { id: mac } = req.params
+  console.log(req.headers['user-agent'])
 
-  const dominio = 'crtsp.cloudcom.com.br:6000'
+  const dominio = 'cloud.cloudcom.com.br:6000'
   const outboundProxy = '18.217.251.102:6000'
   const alterarUser = false
 
   res.setHeader('content-type', 'text/xml');
-  res.render('config', {mac, dominio, outboundProxy, alterarUser})
+  res.render('ht502', {mac, dominio, outboundProxy, alterarUser})
 })
 
 app.get('*', function(req, res){

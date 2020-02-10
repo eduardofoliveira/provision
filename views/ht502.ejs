@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- HT5XX XML Provisioning Configuration -->
+<gs_provision version="1">
+<mac><%= mac %></mac>
+	<config version="1">
+    <!--
+      ##############################################################################
+      ##  Basic Settings.                                                         ##
+      ##############################################################################
+    -->
+    <!-- End User Password -->
+    <P196>123</P196>
+    <!-- Web Port -->
+    <P901>80</P901>
+    <!-- Telnet Server. 1 - No, 0 - Yes -->
+    <P276>0</P276>
+    <!-- DHCP Hostname -->
+    <P146>HT502</P146>
+    <!-- DHCP Vendor Class ID -->
+    <P148>HT502</P148>
+    <!-- IP Address. 0 - DHCP, 2 - PPPoE, 1 - Static IP  -->
+    <P8>0</P8>
+    <!-- IP Address -->
+    <P9>192</P9>
+    <P10>168</P10>
+    <P11>0</P11>
+    <P12>160</P12>
+    <!-- Subnet mask -->
+    <P13>255</P13>
+    <P14>255</P14>
+    <P15>255</P15>
+    <P16>0</P16>
+    <!-- Router -->
+    <P17>192</P17>
+    <P18>168</P18>
+    <P19>0</P19>
+    <P20>1</P20>
+    <!-- DNS 1 -->
+    <P21>1</P21>
+    <P22>1</P22>
+    <P23>1</P23>
+    <P24>1</P24>
+    <!-- DNS 2 -->
+    <P25>1</P25>
+    <P26>0</P26>
+    <P27>0</P27>
+    <P28>1</P28>
+    <!-- Time Zone. Offset in minutes to GMT -->
+    <P64>BRST+3BRDT+2,M10.3.0,M2.3.0</P64>
+    <!-- Self-Defined Time Zone -->
+    <246>MTZ+6MDT+5,M3.2.0,M11.1.0</246>
+    <!-- Language. 0 - English, 4 - Chinese, 10 - Spanish IVR -->
+    <P342>0</P342>
+
+    <!--
+      #################################################
+      # NAT/DHCP Server Information & Configuration   #
+      #################################################
+    -->
+    <!-- Device Mode. 0 -NAT Router, 1 - Bridge -->
+    <P231>1</P231>
+
+    <!-- Enable LAN DHCP. 0 - No, 1 - Yes -->
+    <P5001>0</P5001>
+
+    <!--
+      ##############################################################################
+      ##  Advanced Settings.                                                      ##
+      ##############################################################################
+    -->
+    <!-- Admin password for web interface  -->
+    <P2>Admin</P2>
+    <!-- Firmware Upgrade and Privisioning. 0 - TFTP Upgrade, 1 - HTTP Upgrade, 2 - HTTPS Upgrade -->
+    <P212>1</P212>
+    <!-- Firmware Server Path -->
+    <P192>10.20.70.8</P192>
+    <!-- Config Server Path -->
+    <P237>firmware.grandstream.com</P237>
+    <!-- Allow DHCP Option 66 to override server. 0 - No, 1 - Yes. Default is Yes -->
+    <P145>0</P145>
+    <!-- 3CX Auto Provision. 0 - No, 1 - Yes. Default is 1 - Yes -->
+    <P1414>0</P1414>
+    <!-- 
+      Use firmware pre/postfix to determine if f/w is required
+      0 = Always Check for New Firmware 
+      1 = Check New Firmware only when F/W pre/suffix changes 
+      2 = Always Skip the Firmware Check
+     -->
+    <P238>0</P238>
+    <!-- Automatic Reboot. 0 - No, 1 - Yes, daily at hour, 2 - Yes, weekly on day -->
+    <P21929>1</P21929>
+    <!-- Hour of the Day(0-23) -->
+    <P21930>2</P21930>
+
+    <!-- 
+      ##############################################
+      # Call Progress Tones                        #
+      ##############################################
+     -->
+    <!-- Dial Tone -->
+		<P4000>f1=425@-13,f2=0@-13,c=0/0;</P4000>
+
+		<!-- Ringback Tone -->
+		<P4001>f1=425@-13,f2=0@-13,c=1000/4000;</P4001>
+
+		<!-- Busy Tone -->
+		<P4002>f1=425@-13,f2=0@-13,c=250/250;</P4002>
+
+		<!-- Reorder Tone -->
+		<P4003>f1=425@-13,f2=0@-24,c=250/250;</P4003>
+
+		<!-- Confirmation Tone -->
+		<P4004>f1=350@-11,f2=440@-11,c=100/100-100/100-100/100;</P4004>
+
+		<!-- Call Waiting tone -->
+		<P4005>f1=440@-13,c=300/10000;</P4005>
+
+		<!-- Prompt tone -->
+    <P4041>f1=350@-17,f2=440@-17,c=0/0;</P4041>
+    
+    <!-- 
+      Phone LED Pattern. Default is 0.
+      Number: 0, 1, 2.
+      0 - Pattern A (Onhook: OFF; Offhook: ON; VM: Blink) 
+      1 - Pattern B (Onhook: ON; Offhook: OFF; VM: Blink if phone onhook) 
+      2 - Pattern C (Onhook and Registered: ON; Offhook: Blink; VM: Blink 1sec ON/1sec OFF)
+     -->
+    <P4049>1</P4049>
+    <!-- NTP Server -->
+    <P30>br.pool.ntp.org</P30>
+    <!-- NTP Update Interval in minutes(5-1440)(Default is set to 60 minutes) -->
+    <P5005>60</P5005>
+
+    <!--
+      ##############################################################################
+      ##  FXS PORT 1 Settings.                                                    ##
+      ##############################################################################
+    -->
+
+    <!--
+      ##############################################################################
+      ##  FXS PORT 2 Settings.                                                    ##
+      ##############################################################################
+    -->
+
+	</config>
+</gs_provision>
