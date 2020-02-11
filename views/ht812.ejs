@@ -7,23 +7,25 @@
 		<!-- Profile Active. 0 - No, 1 - Yes. -->
 		<P271>1</P271>
 
-		<!-- Primary SIP Server -->
-		<P47><%= dominio %></P47>
+		<% if(alterarUser){ %>
+			<!-- Primary SIP Server -->
+			<P47><%= dominio1 %></P47>
 
-		<!-- Failover SIP Server -->
-		<P967><%= dominio %></P967>
+			<!-- Failover SIP Server -->
+			<P967><%= dominio1 %></P967>
 
-		<!-- Prefer Primary SIP Server. 0 - No, 1 - Yes. -->
-		<P4567>1</P4567>
+			<!-- Prefer Primary SIP Server. 0 - No, 1 - Yes. -->
+			<P4567>1</P4567>
 
-		<!-- Outbound Proxy -->
-		<P48><%= outboundProxy %></P48>
+			<!-- Outbound Proxy -->
+			<P48><%= outboundProxy1 %></P48>
 
-		<!-- Backup Outbound Proxy -->
-		<P2333><%= outboundProxy %></P2333>
+			<!-- Backup Outbound Proxy -->
+			<P2333><%= outboundProxy1 %></P2333>
 
-		<!-- Prefer Primary Outbound Proxy. 0 - No, 1 - Yes. -->
-		<P28096>1</P28096>
+			<!-- Prefer Primary Outbound Proxy. 0 - No, 1 - Yes. -->
+			<P28096>1</P28096>
+		<% } %>
 
 		<!-- Allow DHCP Option 120( override SIP server )  0 - No, 1 - Yes. -->
 		<P1411>0</P1411>
@@ -491,16 +493,16 @@
 		<!-- FXS Ports -->
 		<!-- FXS Port 1 -->
 		<!-- SIP USER ID -->
-		<P4060>9001</P4060>
+		<P4060><%= usuario1 %></P4060>
 
 		<!-- Authenticate ID -->
-		<P4090>9001</P4090>
+		<P4090><%= usuario1 %></P4090>
 
 		<!-- Password -->
-		<P4120>B@lpha9001</P4120>
+		<P4120><%= password1 %></P4120>
 
 		<!-- Name -->
-		<P4180>9001</P4180>
+		<P4180><%= usuario1 %></P4180>
 
 		<!-- Profile ID (0 - Profile 1, 1 - Profile 2) -->
 		<P4150>0</P4150>
@@ -513,16 +515,16 @@
 
 		<!-- FXS Port 2 -->
 		<!-- SIP USER ID -->
-		<P4061>9002</P4061>
+		<P4061><%= usuario2 %></P4061>
 
 		<!-- Authenticate ID -->
-		<P4091>9002</P4091>
+		<P4091><%= usuario2 %></P4091>
 
 		<!-- Password -->
-		<P4121>B@lpha9002</P4121>
+		<P4121><%= password2 %></P4121>
 
 		<!-- Name -->
-		<P4181>9002</P4181>
+		<P4181><%= usuario2 %></P4181>
 
 		<!-- Profile ID (0 - Profile 1, 1 - Profile 2) -->
 		<P4151>0</P4151>
@@ -624,6 +626,8 @@
 		<P27>0</P27>
 		<P28>0</P28>
 
+		<!-- Time Zone. Offset in minutes to GMT -->
+    <P64>BRST+3BRDT+2,M10.3.0,M2.3.0</P64>
 		<!-- Self-Defined Time Zone -->
 		<P246>MTZ+6MDT+5,M3.2.0,M11.1.0</P246>
 
@@ -651,10 +655,10 @@
 		<P212>1</P212>
 
 		<!-- Firmware Server Path -->
-		<P192>firmware.grandstream.com</P192>
+		<P192><%= firmwarePath %></P192>
 
 		<!-- Config Server Path -->
-		<P237>10.20.70.8</P237>
+		<P237><%= provisionPath %></P237>
 
 		<!-- Allow DHCP Option 66 or 160 to override server. 0 - No, 1 - Yes. Default is Yes -->
 		<P145>0</P145>

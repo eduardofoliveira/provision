@@ -9,7 +9,7 @@
       ##############################################################################
     -->
     <!-- End User Password -->
-    <P196>123</P196>
+    <P196>B@lpha9001</P196>
     <!-- Web Port -->
     <P901>80</P901>
     <!-- Telnet Server. 1 - No, 0 - Yes -->
@@ -73,9 +73,9 @@
     <!-- Firmware Upgrade and Privisioning. 0 - TFTP Upgrade, 1 - HTTP Upgrade, 2 - HTTPS Upgrade -->
     <P212>1</P212>
     <!-- Firmware Server Path -->
-    <P192>10.20.70.8</P192>
+    <P192><%= firmwarePath %></P192>
     <!-- Config Server Path -->
-    <P237>firmware.grandstream.com</P237>
+    <P237><%= provisionPath %></P237>
     <!-- Allow DHCP Option 66 to override server. 0 - No, 1 - Yes. Default is Yes -->
     <P145>0</P145>
     <!-- 3CX Auto Provision. 0 - No, 1 - Yes. Default is 1 - Yes -->
@@ -136,38 +136,312 @@
       ##  FXS PORT 1 Settings.                                                    ##
       ##############################################################################
     -->
+    <% if(alterarUser){ %>
+      <!-- Primary SIP Server -->
+      <P47><%= dominio1 %></P47>
+      <!-- Failover SIP Server -->
+      <P967><%= dominio1 %></P967>
+      <!-- Outbound Proxy -->
+      <P48><%= outboundProxy1 %></P48>
+      <!-- Backup Outbound Proxy -->
+      <P2333><%= outboundProxy1 %></P2333>
+      <!-- SIP User ID -->
+      <P35><%= usuario1 %></P35>
+      <!-- Authentication ID -->
+      <P36><%= usuario1 %></P36>
+      <!-- Authentication password -->
+      <P34><%= password1 %></P34>
+      <!-- Name -->
+      <P3><%= usuario1 %></P3>
+    <% } %>
     <!-- Account Active. 0 - No, 1 - Yes -->
     <P271>1</P271>
-    <!-- Primary SIP Server -->
-    <P47><%= dominio %></P47>
-    <!-- Failover SIP Server -->
-    <P967><%= dominio %></P967>
     <!-- Prefer Primary SIP Server. 0 - No, 1 - Yes -->
     <P4567>1</P4567>
-    <!-- Outbound Proxy -->
-    <P48><%= outboundProxy %></P48>
-    <!-- Backup Outbound Proxy -->
-    <P2333><%= outboundProxy %></P2333>
     <!-- Prefer Primary Outbound Proxy. 0 - No, 1 - Yes. Default is 0 -->
     <P28096>1</P28096>
     <!-- SIP Transport 0 - UDP, 1 - TCP, 2 - TLS -->
     <P130>0</P130>
     <!-- NAT Traversal (STUN) 0 - No, 2 - No but send keep-alive, 1 - Yes -->
-    <P52>1</P52>
-    <!-- SIP User ID -->
-    <P35><%= usuario %></P35>
-    <!-- Authentication ID -->
-    <P36><%= usuario %></P36>
-    <!-- Authentication password -->
-    <P34><%= password %></P34>
-    <!-- Name -->
-    <P3><%= usuario %></P3>
-    
+    <P52>2</P52>
+    <!-- SIP Registration. 0 - No, 1 - Yes -->
+    <P31>1</P31>
+    <!-- Unregister On Reboot. 0 - No, 1 - Yes -->
+    <P81>1</P81>
+    <!-- Outgoing call without Registration. 0 - No, 1 - Yes -->
+    <P109>0</P109>
+    <!-- Register Expiration (in minutes. default 1 hour, max 45 days) -->
+    <P32>1</P32>
+    <!-- Reregister before Expiration -->
+    <P2330>0</P2330>
+    <!-- Registration Retry Wait Time, in seconds. Between 1-3600, default is 30 -->]
+    <P138>20</P138>
+    <!-- SIP Registration Failure Retry Wait Time upon 403 Forbidden -->
+    <P26002>120</P26002>
+    <!-- Local SIP port (default 5060) -->
+    <P40>5060</P40>
+    <!-- Local RTP port (1024-65535, default 5004) -->
+    <P39>10000</P39>
+    <!-- Use Random Port. 0 - No, 1 - Yes -->
+    <P78>1</P78>
+    <!-- Hold Target Before Refer. 0 - No, 1 - Yes -->
+    <P26003>1</P26003>
+    <!-- Refer-To Use Target Contact. 0 - No, 1 - Yes -->
+    <P135>0</P135>
+    <!--- Transfer on Conference Hangup. 0 - No, 1 - Yes -->
+    <P4560>0</P4560>
+    <!-- Disable Bellcore Style 3-Way Conference. 0 - No, 1 - Yes -->
+    <P4830>0</P4830>
+    <!-- Remove OBP from Route Header. 0 - No, 1 - Yes -->
+    <P4562>0</P4562>
+    <!-- Support SIP Instance ID. 0 - No, 1 - Yes -->
+    <P288>1</P288>
+    <!-- Validate Incoming SIP Message . 0 - No, 1 - Yes -->
+    <P4340>0</P4340>
+    <!-- Check SIP UserID for incoming INVITE. 0 - No, 1 - Yes -->
+    <P258>1</P258>
+    <!-- Authenticate incoming INVITE -->
+    <P2346>0</P2346>
+    <!-- Authenticate server certificate domain. 0 - No, 1 - Yes -->
+    <P2311>0</P2311>
+    <!-- Authenticate server certificate chain. 0 - No, 1 - Yes -->
+    <P2367>0</P2367>
+    <!--
+      Trusted CA certificates.
+      String
+      P2386=
+    -->
+    <!-- Allow Incoming SIP Messages from SIP Proxy Only. 0 - No, 1 - Yes -->
+    <P243>1</P243>
+    <!-- Use Privacy Header. 0 - Default, 1 - No, 2 - Yes -->
+    <P2338>0</P2338>
+    <!-- Use P-Preferred-Identity Header. 0 - Default, 1 - No, 2 - Yes -->
+    <P2339>0</P2339>
+    <!-- SIP T1 Timeout -->
+    <P209>50</P209>
+    <!-- SIP T2 Interval -->
+    <P250>400</P250>
+    <!-- SIP Timer D -->
+    <P2387>0</P2387>
+    <!-- DTMF Payload Type -->
+    <P79>101</P79>
+    <!-- Preferred DTMF method -->
+    <!-- 100 - In-audio, 101 - RFC2833, 102 - SIP INFO -->
+    <!-- Priority 1 -->
+    <P850>101</P850>
+    <!-- Priority 2 -->
+    <P851>102</P851>
+    <!-- Priority 3 -->
+    <P852>100</P852>
+    <!-- Enable Call Features. 0 - No, 1 - Yes -->
+    <P191>0</P191>
+    <!-- Dial Plan -->
+    <P4200>{ x+ | \+x+ | *x+ | *xx*x+ }</P4200>
+    <!-- Send Anonymous. 0 - No, 1 - Yes -->
+    <P65>0</P65>
+    <!-- Session Expiration -->
+    <P260>90</P260>
+    <!-- Minimum SE -->
+    <P261>90</P261>
+
+    <!--
+      ################################################################################
+      # Codec/Voice Quality settings                                                 #
+      ################################################################################
+    -->
+    <!-- Use First Matching Vocoder in 200OK SDP. 0 - No, 1 - Yes -->
+    <P4363>0</P4363>
+    <!--
+      Preferred Vocoder
+      0 - PCMU, 8 - PCMA, 4 - G.723, 18 - G.729, 2 - G.726-32, 100 - AAL2-G.726-16,
+      102 - AAL2-G.726-24, 104 - AAL2-G726-32, 103 - AAL2-G.726-40, 98 - iLBC, 99 - G.729E
+    -->
+    <!-- Choice 1 -->
+    <P57>0</P57>
+    <!-- Choice 2 -->
+    <P58>8</P58>
+    <!-- Choice 3 -->
+    <P59>0</P59>
+    <!-- Choice 4 -->
+    <P60>8</P60>
+    <!-- Choice 5 -->
+    <P61>0</P61>
+    <!-- Choice 6 -->
+    <P62>8</P62>
+    <!-- Choice 7 -->
+    <P46>0</P46>
+    <!-- Choice 8 -->
+    <P98>8</P98>
+
+    <!-- FAX Mode. 0 - T.38 (Auto Detect), 1 - Pass Through -->
+    <P228>1</P228>
+    <!-- Jitter buffer length. 0 - Low, 1 - Medium, 2 - High -->
+    <P132>0</P132>
+    <!-- Crypto Life Time. 0 - Disabled, 1 - Enabled -->
+    <P2363>0</P2363>
+    <!-- Caller ID Scheme -->
+    <P853>6</P853>
+    <!-- Hook Flash Timing. In 40-2000 milliseconds range -->
+    <!-- minimum -->
+    <P251>100</P251>
+    <!-- maximum -->
+    <P252>800</P252>
+
     <!--
       ##############################################################################
       ##  FXS PORT 2 Settings.                                                    ##
       ##############################################################################
     -->
+    <% if(alterarUser){ %>
+      <!-- Primary SIP Server -->
+      <P747><%= dominio2 %></P747>
+      <!-- Failover SIP Server -->
+      <P987><%= dominio2 %></P987>
+      <!-- Outbound Proxy -->
+      <P748><%= outboundProxy2 %></P748>
+      <!-- Backup Outbound Proxy -->
+      <P2433><%= outboundProxy2 %></P2433>
+      <!-- SIP User ID -->
+      <P735><%= usuario2 %></P735>
+      <!-- Authentication ID -->
+      <P736><%= usuario2 %></P736>
+      <!-- Authentication password -->
+      <P734><%= password2 %></P734>
+      <!-- Name -->
+      <P703><%= usuario2 %></P703>
+    <% } %>
+    <!-- Account Active. 0 - No, 1 - Yes -->
+    <P401>1</P401>
+    <!-- Prefer Primary SIP Server. 0 - No, 1 - Yes -->
+    <P4568>1</P4568>
+    <!-- Prefer Primary Outbound Proxy. 0 - No, 1 - Yes. Default is 0 -->
+    <P28097>1</P28097>
+    <!-- SIP Transport 0 - UDP, 1 - TCP, 2 - TLS -->
+    <P830>0</P830>
+    <!-- NAT Traversal (STUN). 0 - No, 2 - No but send keep-alive, 1 - Yes -->
+    <P730>2</P730>
+    <!-- SIP Registration. 0 - No, 1 - Yes -->
+    <P731>1</P731>
+    <!-- Unregister On Reboot. 0 - No, 1 - Yes -->
+    <P752>1</P752>
+    <!-- Outgoing call without Registration. 0 - No, 1 - Yes -->
+    <P813>0</P813>
+    <!-- Register Expiration -->
+    <P732>1</P732>
+    <!-- Reregister before Expiration -->
+    <P2430>0</P2430>
+    <!-- Registration Retry Wait Time, in seconds -->
+    <P471>20</P471>
+    <!-- SIP Registration Failure Retry Wait Time upon 403 Forbidden -->
+    <P26102>120</P26102>
+    <!-- Local SIP port (default 5062) -->
+    <P740>5062</P740>
+    <!-- Local RTP port (1024-65535, default 5012) -->
+    <P739>11000</P739>
+    <!-- Use Random Port. 0 - No, 1 - Yes -->
+    <P778>1</P778>
+    <!-- Hold Target Before Refer. 0 - No, 1 - Yes -->
+    <P26103>1</P26103>
+    <!-- Refer-To Use Target Contact. 0 - No, 1 - Yes -->
+    <P469>0</P469>
+    <!-- Transfer on Conference Hangup. 0 - No, 1 - Yes -->
+    <P4561>0</P4561>
+    <!-- Disable Bellcore Style 3-Way Conference. 0 - No, 1 - Yes -->
+    <P4831>0</P4831>
+    <!-- Remove OBP from Route Header. 0 - No, 1 - Yes -->
+    <P4563>0</P4563>
+    <!-- Support SIP Instance ID. 0 - No, 1 - Yes -->
+    <P489>1</P489>
+    <!-- Validate Incoming SIP Message. 0 - No, 1 - Yes -->
+    <P4341>0</P4341>
+    <!-- Check SIP User ID for incoming INVITE. 0 - No, 1 - Yes -->
+    <P449>1</P449>
+    <!-- Authenticate incoming INVITE -->
+    <P2446>0</P2446>
+    <!-- Authenticate server certificate domain -->
+    <P2411>0</P2411>
+    <!-- Authenticate server certificate chain -->
+    <P2467>0</P2467>
+    <!--
+      Trusted CA certificates.
+      String
+      P2486 =
+    -->
+    <!-- Allow Incoming SIP Messages from SIP Proxy Only. 0 - No, 1 - Yes -->
+    <P4043>1</P4043>
+    <!-- Use Privacy Header. 0 - Default, 1 - No, 2 - Yes -->
+    <P2438>0</P2438>
+    <!-- Use P-Preferred-Identity Header. 0 - Default, 1 - No, 2 - Yes -->
+    <P2439>0</P2439>
+    <!-- SIP T1 Timeout -->
+    <P440>50</P440>
+    <!-- SIP T2 Interval -->
+    <P441>400</P441>
+    <!-- SIP Timer D -->
+    <P2487>0</P2487>
+    <!-- DTMF Payload Type -->
+    <P779>101</P779>
+    <!-- Preferred DTMF method -->
+    <!-- 100 - In-audio, 101 - RFC2833, 102 - SIP INFO -->
+    <!-- Priority 1 -->
+    <P860>101</P860>
+    <!-- Priority 2 -->
+    <P861>102</P861>
+    <!-- Priority 3 -->
+    <P862>100</P862>
+    <!-- Enable Call Features. 0 - No, 1 - Yes -->
+    <P751>0</P751>
+    <!-- Dial Plan -->
+    <P4201>{ x+ | \+x+ | *x+ | *xx*x+ }</P4201>
+    <!-- Send Anonymous. 0 - No, 1 - Yes -->
+    <P765>0</P765>
+    <!-- Session Expiration -->
+    <P434>90</P434>
+    <!-- Minimum SE -->
+    <P427>90</P427>
 
+    <!--
+      ################################################################################
+      # Codec/Voice Quality settings                                                 #
+      ################################################################################
+    -->
+    <!-- Use First Matching Vocoder in 200OK SDP. 0 - No, 1 - Yes -->
+    <P4364>0</P4364>
+
+    <!-- Preferred Vocoder -->
+    <!--
+      0 - PCMU, 8 - PCMA, 4 - G.723, 18 - G.729, 2 - G.726-32, 100 - AAL2-G.726-16,
+      102 - AAL2-G.726-24, 104 - AAL2-G726-32, 103 - AAL2-G.726-40, 98 - iLBC, 99 - G.729E
+    -->
+    <!-- Choice 1 -->
+    <P757>0</P757>
+    <!-- Choice 2 -->
+    <P758>8</P758>
+    <!-- Choice 3 -->
+    <P759>0</P759>
+    <!-- Choice 4 -->
+    <P760>8</P760>
+    <!-- Choice 5 -->
+    <P761>0</P761>
+    <!-- Choice 6 -->
+    <P762>8</P762>
+    <!-- Choice 7 -->
+    <P814>0</P814>
+    <!-- Choice 8 -->
+    <P815>8</P815>
+
+    <!-- FAX Mode. 0 - T.38 (Auto Detect), 1 - Pass Through -->
+    <P710>1</P710>
+    <!-- Jitter buffer length. 0 - Low, 1 - Medium, 2 - High -->
+    <P832>0</P832>
+    <!-- Crypto Life Time. 0 - Disabled, 1 - Enabled -->
+    <P2463>0</P2463>
+    <!-- Caller ID Scheme -->
+    <P863>6</P863>
+    <!-- Hook Flash Timing. In 40-2000 milliseconds range -->
+    <!-- minimum -->
+    <P811>100</P811>
+    <!-- maximum -->
+    <P812>800</P812>
 	</config>
 </gs_provision>
