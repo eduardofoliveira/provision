@@ -3,6 +3,7 @@ const express = require('express')
 const fs = require('fs')
 const log = fs.createWriteStream('./log.txt', {flags: 'a'})
 const app = express()
+const port = process.env.PORT || 80
 app.use(express.urlencoded({extended: true}))
 app.set('view engine', 'ejs');
 
@@ -67,8 +68,8 @@ app.get('/cfg:id.xml', (req, res) => {
   const outboundProxy1 = '18.217.251.102:6000'
   const dominio2 = 'cloud.cloudcom.com.br:6000'
   const outboundProxy2 = '18.217.251.102:6000'
-  const provisionPath = proces.env.PROVISION_PATH
-  const firmwarePath = proces.env.FIRMWARE_PATH
+  const provisionPath = process.env.PROVISION_PATH
+  const firmwarePath = process.env.FIRMWARE_PATH
   const alterarUser = false
 
   res.setHeader('content-type', 'text/xml');
